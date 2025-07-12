@@ -1,0 +1,20 @@
+These file to test the Lines counting code. Let count the lines manualy here 
+line 2
+line 3 
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+and the last line is 20 (There are 20 lines in these file, now check the code output)
