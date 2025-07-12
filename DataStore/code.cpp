@@ -5,31 +5,35 @@
 
 using namespace std;
 
-class StudentData {
+class StudentData
+{
 private:
-    int* rollNo;
-    string* name;
-    float* marks;
+    int *rollNo;
+    string *name;
+    float *marks;
     int size;
     string filename;
 
 public:
-    StudentData(int n, const string& file_name) : filename(file_name) {
+    StudentData(int n, const string &file_name) : filename(file_name)
+    {
         size = n;
         rollNo = new int[size];
         name = new string[size];
         marks = new float[size];
     }
 
-    void addData() {
+    void addData()
+    {
         cout << "\nEnter student data:\n";
         cout << string(32, '-') << endl;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++)
+        {
             cout << "Enter details for student " << (i + 1) << ":\n";
 
             cout << "Enter Roll Number: ";
             cin >> rollNo[i];
-            cin.ignore();  
+            cin.ignore();
 
             cout << "Enter Student Name: ";
             getline(cin, name[i]);
@@ -40,9 +44,11 @@ public:
         }
     }
 
-    void writeToFile() {
+    void writeToFile()
+    {
         ofstream file(filename);
-        if (!file) {
+        if (!file)
+        {
             cout << "Error in creating file: " << filename << endl;
             return;
         }
@@ -54,7 +60,8 @@ public:
              << "| " << setw(8) << "Marks" << "|\n";
         file << string(45, '-') << endl;
 
-        for (int i = 0; i < size; ++i) {
+        for (int i = 0; i < size; ++i)
+        {
             file << "| " << left << setw(10) << rollNo[i]
                  << "| " << setw(20) << name[i]
                  << "| " << fixed << setprecision(2) << setw(8) << marks[i] << "|\n";
@@ -66,30 +73,35 @@ public:
         cout << "Data written to file successfully.\n";
     }
 
-    void readFromFile() {
+    void readFromFile()
+    {
         ifstream file(filename);
-        if (!file) {
+        if (!file)
+        {
             cout << "Error in opening file: " << filename << endl;
             return;
         }
 
         cout << "\nReading data from file: " << filename << "\n\n";
         string line;
-        while (getline(file, line)) {
+        while (getline(file, line))
+        {
             cout << line << endl;
         }
 
         file.close();
     }
 
-    ~StudentData() {
+    ~StudentData()
+    {
         delete[] rollNo;
         delete[] name;
         delete[] marks;
     }
 };
 
-int main() {
+int main()
+{
     int n;
     string filename;
 
@@ -99,12 +111,11 @@ int main() {
     cout << "Enter number of students: ";
     cin >> n;
 
-    if (n <= 0) {
+    if (n <= 0)
+    {
         cout << "Invalid number of students. Exiting...\n";
         return 1;
     }
-
-
 
     filename += ".txt";
 

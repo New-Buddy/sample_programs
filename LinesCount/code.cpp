@@ -16,7 +16,7 @@ public:
 
     void countLines()
     {
-        linesCount = 0; // reset before counting
+        linesCount = 0;
         ifstream file(filename);
         if (!file)
         {
@@ -37,11 +37,6 @@ int main()
 
     cout << "Enter the file name to read: ";
     getline(cin, fileName);
-
-    // Append .txt if not present
-    if (fileName.size() < 4 || fileName.substr(fileName.size() - 4) != ".txt") {
-        fileName += ".txt";
-    }
 
     File Test(fileName);
     Test.countLines();
